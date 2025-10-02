@@ -68,4 +68,12 @@ public class FeedService {
         return null;
     }
 
+    public void deleteFeed(int no) {
+        // 이미지 삭제
+        feedDAO.deleteFeedImages(no);
+
+        // feed 삭제
+        feedDAO.deleteFeed(no);
+    }
+
 }

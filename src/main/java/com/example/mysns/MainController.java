@@ -30,4 +30,13 @@ public class MainController {
 
         return "redirect:/";
     }
+
+    @PostMapping("/feeds/delete")
+    public String deleteFeed(@RequestParam("no") int no) {
+
+        // 삭제하기
+        feedService.deleteFeed(no);
+
+        return "redirect:/";
+    }
 }

@@ -16,5 +16,7 @@ public interface FeedDAO {
 
     void deleteFeed(@Param("no") int no);
 
+    void deleteFeedImages(@Param("no") int feedNo);
+
     List<Integer> selectFeedImgNos(@Param("no") int feedNo);
 }

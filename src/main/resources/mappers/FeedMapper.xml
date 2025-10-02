@@ -27,6 +27,10 @@
         DELETE FROM feed WHERE no = #{no}
     </delete>
 
+    <delete id="deleteFeedImages" parameterType="int">
+        DELETE FROM feed_img WHERE feed_no = #{no}
+    </delete>
+
     <select id="selectFeedImgNos" resultType="int">
         SELECT no FROM feed_img WHERE feed_no = #{no}
     </select>
