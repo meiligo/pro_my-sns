@@ -33,11 +33,17 @@ public class FeedService {
     }
 
     public List<FeedVO> getAllFeeds() {
-        return feedDAO.selectAllFeed();
+        List<FeedVO> feeds = feedDAO.selectAllFeed();
+        setFeedImgNos(feeds);
+        return feeds;
     }
 
-    public FeedImgVO getFeedImg0(int no) {
-        return feedDAO.selectFeedImg(no);
+    private void setFeedImgNos(List<FeedVO> feeds) {
+        // 각각의 feed마다 이미지no 리스트를 select해온다
+        for (FeedVO feed : feeds) {
+            List feedImgNos = feedDAO.selectFeedImgNos(feed.getNo());
+            feed.setFeedImgNos(feedImgNos);
+        }
     }
 
     // DB 에서 이미지 파일 select를 위해 직접 구현

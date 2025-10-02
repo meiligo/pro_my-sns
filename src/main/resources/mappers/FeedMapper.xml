@@ -15,18 +15,6 @@
         INSERT INTO feed_img (feed_no, image) VALUES (#{feedNo}, #{image});
     </insert>
 
-
-<!--    <resultMap id="FeedImgResultMap" type="com.example.mysns.FeedImgVO">-->
-<!--        <id property="no" column="no" jdbcType="INTEGER" />-->
-<!--        <result property="feedNo" column="feed_no" jdbcType="INTEGER" />-->
-<!--        <result property="image" column="image" jdbcType="BLOB" />-->
-<!--    </resultMap>-->
-
-<!--    -->
-<!--    <select id="selectFeedImg" parameterType="int" resultType="com.example.mysns.FeedImgVO">-->
-<!--        SELECT no, feed_no, image FROM feed_img WHERE no = #{no}-->
-<!--    </select>-->
-
     <select id="selectAllFeed" resultType="com.example.mysns.FeedVO">
         SELECT * FROM feed ORDER BY no DESC
     </select>
@@ -38,5 +26,9 @@
     <delete id="deleteFeed" parameterType="int">
         DELETE FROM feed WHERE no = #{no}
     </delete>
+
+    <select id="selectFeedImgNos" resultType="int">
+        SELECT no FROM feed_img WHERE feed_no = #{no}
+    </select>
 
 </mapper>
